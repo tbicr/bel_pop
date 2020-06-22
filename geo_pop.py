@@ -77,8 +77,14 @@ def approx_stat(population, town, stat):
 
 stats = {}
 selects = []
+population_total = 0
+population_electoral_total = 0
 for m in [r1, r2, r3, r4, r5, r6, r7]:
     result = parse_stat(m.NAME, m.DATA)
+    for age, (total, *_) in result:
+        population_total += total
+        if 18 <= age:
+            population_electoral_total += total
     stats[m.OSM_ID] = result
     selects.append(f"""(
         SELECT p.osm_id, {m.OSM_ID} AS region, p.tags->'name:be' AS name_be, p.tags->'name:ru' AS name_ru, (p.tags->'population')::integer AS population, ST_MakeValid(p.way) AS geom 
@@ -161,6 +167,11 @@ for line in out.getvalue().strip().splitlines():
     population_26_39_p = round(100 * population_26_39 / population, 1)
     population_40_60_p = round(100 * population_40_60 / population, 1)
     population_61_85_p = round(100 * population_61_85 / population, 1)
+    population_electoral_x = round(100 * population_electoral / population_electoral_total, 2)
+    population_18_25_x = round(100 * population_18_25 / population_electoral_total, 2)
+    population_26_39_x = round(100 * population_26_39 / population_electoral_total, 2)
+    population_40_60_x = round(100 * population_40_60 / population_electoral_total, 2)
+    population_61_85_x = round(100 * population_61_85 / population_electoral_total, 2)
     features.append({
         'type': 'Feature',
         'geometry': geom,
@@ -174,10 +185,10 @@ for line in out.getvalue().strip().splitlines():
             'population_40_60': population_40_60,
             'population_61_85': population_61_85,
             'population_electoral_p': f'{population_electoral} ({population_electoral_p}%)',
-            'population_18_25_p': f'{population_18_25} ({population_18_25_p}%)',
-            'population_26_39_p': f'{population_26_39} ({population_26_39_p}%)',
-            'population_40_60_p': f'{population_40_60} ({population_40_60_p}%)',
-            'population_61_85_p': f'{population_61_85} ({population_61_85_p}%)',
+            'population_18_25_p': f'{population_18_25} ({population_18_25_p}% - {population_18_25_x}%)',
+            'population_26_39_p': f'{population_26_39} ({population_26_39_p}% - {population_26_39_x}%)',
+            'population_40_60_p': f'{population_40_60} ({population_40_60_p}% - {population_40_60_x}%)',
+            'population_61_85_p': f'{population_61_85} ({population_61_85_p}% - {population_61_85_x}%)',
             'area': round(area, 2),
             'density': round(population / area, 2),
             'density_electoral': round(population_electoral / area, 2),
