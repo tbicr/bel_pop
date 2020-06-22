@@ -156,6 +156,11 @@ for line in out.getvalue().strip().splitlines():
     population_26_39 = sum(total for age, total, men, woman in approx_list if 26 <= age < 39)
     population_40_60 = sum(total for age, total, men, woman in approx_list if 40 <= age < 60)
     population_61_85 = sum(total for age, total, men, woman in approx_list if 61 <= age)
+    population_electoral_p = round(100 * population_electoral / population, 1)
+    population_18_25_p = round(100 * population_18_25 / population, 1)
+    population_26_39_p = round(100 * population_26_39 / population, 1)
+    population_40_60_p = round(100 * population_40_60 / population, 1)
+    population_61_85_p = round(100 * population_61_85 / population, 1)
     features.append({
         'type': 'Feature',
         'geometry': geom,
@@ -168,6 +173,11 @@ for line in out.getvalue().strip().splitlines():
             'population_26_39': population_26_39,
             'population_40_60': population_40_60,
             'population_61_85': population_61_85,
+            'population_electoral_p': f'{population_electoral} ({population_electoral_p}%)',
+            'population_18_25_p': f'{population_18_25} ({population_18_25_p}%)',
+            'population_26_39_p': f'{population_26_39} ({population_26_39_p}%)',
+            'population_40_60_p': f'{population_40_60} ({population_40_60_p}%)',
+            'population_61_85_p': f'{population_61_85} ({population_61_85_p}%)',
             'area': round(area, 2),
             'density': round(population / area, 2),
             'density_electoral': round(population_electoral / area, 2),
