@@ -236,39 +236,39 @@ for line in out.getvalue().strip().splitlines():
 
     population_electoral = sum(men + woman for age, (men, woman) in approx_pop.items() if 18 <= age)
     population_electoral_m = sum(men for age, (men, woman) in approx_pop.items() if 18 <= age)
-    population_18_25_m = sum(men for age, (men, woman) in approx_pop.items() if 18 <= age < 26)
-    population_26_39_m = sum(men for age, (men, woman) in approx_pop.items() if 26 <= age < 39)
-    population_40_60_m = sum(men for age, (men, woman) in approx_pop.items() if 40 <= age < 60)
-    population_61_85_m = sum(men for age, (men, woman) in approx_pop.items() if 61 <= age)
+    population_18_29_m = sum(men for age, (men, woman) in approx_pop.items() if 18 <= age < 29)
+    population_30_44_m = sum(men for age, (men, woman) in approx_pop.items() if 30 <= age < 44)
+    population_45_59_m = sum(men for age, (men, woman) in approx_pop.items() if 45 <= age < 59)
+    population_60_85_m = sum(men for age, (men, woman) in approx_pop.items() if 60 <= age)
     population_electoral_w = sum(woman for age, (men, woman) in approx_pop.items() if 18 <= age)
-    population_18_25_w = sum(woman for age, (men, woman) in approx_pop.items() if 18 <= age < 26)
-    population_26_39_w = sum(woman for age, (men, woman) in approx_pop.items() if 26 <= age < 39)
-    population_40_60_w = sum(woman for age, (men, woman) in approx_pop.items() if 40 <= age < 60)
-    population_61_85_w = sum(woman for age, (men, woman) in approx_pop.items() if 61 <= age)
-    population_18_25 = population_18_25_m + population_18_25_w
-    population_26_39 = population_26_39_m + population_26_39_w
-    population_40_60 = population_40_60_m + population_40_60_w
-    population_61_85 = population_61_85_m + population_61_85_w
+    population_18_29_w = sum(woman for age, (men, woman) in approx_pop.items() if 18 <= age < 29)
+    population_30_44_w = sum(woman for age, (men, woman) in approx_pop.items() if 30 <= age < 44)
+    population_45_59_w = sum(woman for age, (men, woman) in approx_pop.items() if 45 <= age < 59)
+    population_60_85_w = sum(woman for age, (men, woman) in approx_pop.items() if 60 <= age)
+    population_18_29 = population_18_29_m + population_18_29_w
+    population_30_44 = population_30_44_m + population_30_44_w
+    population_45_59 = population_45_59_m + population_45_59_w
+    population_60_85 = population_60_85_m + population_60_85_w
     population_electoral_p = round(100 * population_electoral / population, 1)
-    population_18_25_p = round(100 * population_18_25 / population, 1)
-    population_26_39_p = round(100 * population_26_39 / population, 1)
-    population_40_60_p = round(100 * population_40_60 / population, 1)
-    population_61_85_p = round(100 * population_61_85 / population, 1)
+    population_18_29_p = round(100 * population_18_29 / population, 1)
+    population_30_44_p = round(100 * population_30_44 / population, 1)
+    population_45_59_p = round(100 * population_45_59 / population, 1)
+    population_60_85_p = round(100 * population_60_85 / population, 1)
     population_electoral_p_m = round(100 * population_electoral_m / population, 1)
-    population_18_25_p_m = round(100 * population_18_25_m / population, 1)
-    population_26_39_p_m = round(100 * population_26_39_m / population, 1)
-    population_40_60_p_m = round(100 * population_40_60_m / population, 1)
-    population_61_85_p_m = round(100 * population_61_85_m / population, 1)
+    population_18_29_p_m = round(100 * population_18_29_m / population, 1)
+    population_30_44_p_m = round(100 * population_30_44_m / population, 1)
+    population_45_59_p_m = round(100 * population_45_59_m / population, 1)
+    population_60_85_p_m = round(100 * population_60_85_m / population, 1)
     population_electoral_p_w = round(100 * population_electoral_w / population, 1)
-    population_18_25_p_w = round(100 * population_18_25_w / population, 1)
-    population_26_39_p_w = round(100 * population_26_39_w / population, 1)
-    population_40_60_p_w = round(100 * population_40_60_w / population, 1)
-    population_61_85_p_w = round(100 * population_61_85_w / population, 1)
+    population_18_29_p_w = round(100 * population_18_29_w / population, 1)
+    population_30_44_p_w = round(100 * population_30_44_w / population, 1)
+    population_45_59_p_w = round(100 * population_45_59_w / population, 1)
+    population_60_85_p_w = round(100 * population_60_85_w / population, 1)
     population_electoral_x = round(100 * population_electoral / population_electoral_total, 2)
-    population_18_25_x = round(100 * population_18_25 / population_electoral_total, 2)
-    population_26_39_x = round(100 * population_26_39 / population_electoral_total, 2)
-    population_40_60_x = round(100 * population_40_60 / population_electoral_total, 2)
-    population_61_85_x = round(100 * population_61_85 / population_electoral_total, 2)
+    population_18_29_x = round(100 * population_18_29 / population_electoral_total, 2)
+    population_30_44_x = round(100 * population_30_44 / population_electoral_total, 2)
+    population_45_59_x = round(100 * population_45_59 / population_electoral_total, 2)
+    population_60_85_x = round(100 * population_60_85 / population_electoral_total, 2)
 
     # approx_list, approx_dict = approx_stat(population, town, stats[region])
 
@@ -295,23 +295,23 @@ for line in out.getvalue().strip().splitlines():
 
             'population': population,
             'population_electoral': population_electoral,
-            'population_18_25': population_18_25,
-            'population_26_39': population_26_39,
-            'population_40_60': population_40_60,
-            'population_61_85': population_61_85,
+            'population_18_29': population_18_29,
+            'population_30_44': population_30_44,
+            'population_45_59': population_45_59,
+            'population_60_85': population_60_85,
             'population_electoral_f': f'{population_electoral} - {population_electoral_p}% (M: {population_electoral_p_m}% W: {population_electoral_p_w}%) / {population_electoral_x}%',
-            'population_18_25_f': f'{population_18_25} - {population_18_25_p}% (M: {population_18_25_p_m}% W: {population_18_25_p_w}%) / {population_18_25_x}%',
-            'population_26_39_f': f'{population_26_39} - {population_26_39_p}% (M: {population_26_39_p_m}% W: {population_26_39_p_w}%) / {population_26_39_x}%',
-            'population_40_60_f': f'{population_40_60} - {population_40_60_p}% (M: {population_40_60_p_m}% W: {population_40_60_p_w}%) / {population_40_60_x}%',
-            'population_61_85_f': f'{population_61_85} - {population_61_85_p}% (M: {population_61_85_p_m}% W: {population_61_85_p_w}%) / {population_61_85_x}%',
+            'population_18_29_f': f'{population_18_29} - {population_18_29_p}% (M: {population_18_29_p_m}% W: {population_18_29_p_w}%) / {population_18_29_x}%',
+            'population_30_44_f': f'{population_30_44} - {population_30_44_p}% (M: {population_30_44_p_m}% W: {population_30_44_p_w}%) / {population_30_44_x}%',
+            'population_45_59_f': f'{population_45_59} - {population_45_59_p}% (M: {population_45_59_p_m}% W: {population_45_59_p_w}%) / {population_45_59_x}%',
+            'population_60_85_f': f'{population_60_85} - {population_60_85_p}% (M: {population_60_85_p_m}% W: {population_60_85_p_w}%) / {population_60_85_x}%',
 
             'area': round(area, 2),
             'density': round(population / area, 2),
             'density_electoral': round(population_electoral / area, 2),
-            'density_18_25': round(population_18_25 / area, 2),
-            'density_26_39': round(population_26_39 / area, 2),
-            'density_40_60': round(population_40_60 / area, 2),
-            'density_61_85': round(population_61_85 / area, 2),
+            'density_18_29': round(population_18_29 / area, 2),
+            'density_30_44': round(population_30_44 / area, 2),
+            'density_45_59': round(population_45_59 / area, 2),
+            'density_60_85': round(population_60_85 / area, 2),
 
             # **approx_dict,
             # **approx_pop_data,
