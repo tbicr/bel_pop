@@ -9,6 +9,8 @@
 
     docker run -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgis/postgis:12-3.0-alpine
     wget https://download.geofabrik.de/europe/belarus-latest.osm.pbf
+    PGPASSWORD=postgres psql -h localhost -U postgres -d postgres -c "CREATE EXTENSION hstore"
+    PGPASSWORD=postgres psql -h localhost -U postgres -d postgres -f simplifyLayerPreserveTopology.sql
     PGPASSWORD=postgres osm2pgsql -H localhost -U postgres -d postgres \
         -l -j -G --hstore-add-index -C 10000 belarus-latest.osm.pbf
     pip install -r requirements.txt
